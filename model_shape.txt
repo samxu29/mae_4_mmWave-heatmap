@@ -1,0 +1,54 @@
+-----------------------------
+MAE Encoder:
+        Input: torch.Size([13, 3, 32, 32])
+
+
+        Encoder Input Image Shape: torch.Size([13, 3, 32, 32])
+        Patches Shape After Conv2d: torch.Size([13, 192, 16, 16])
+        Patches Shape After Rearrange: torch.Size([256, 13, 192])
+        Patches Shape After Adding Positional Embedding: torch.Size([256, 13, 192])
+        Patches Shape After Shuffle: torch.Size([64, 13, 192])
+        Patches Shape After Adding CLS Token: torch.Size([65, 13, 192])
+        Patches Shape Before Transformer: torch.Size([13, 65, 192])
+        Features Shape After Transformer: torch.Size([13, 65, 192])
+        Features Shape After Rearrange: torch.Size([65, 13, 192])
+
+
+        Output: torch.Size([65, 13, 192])
+-----------------------------
+MAE Decoder:
+        Input: torch.Size([65, 13, 192])
+
+
+        Decoder Input Features Shape: torch.Size([65, 13, 192])
+        Features Shape After Adding Mask Token: torch.Size([257, 13, 192])
+        Features Shape After Unshuffle: torch.Size([257, 13, 192])
+        Features Shape After Adding Positional Embedding: torch.Size([257, 13, 192])
+        Features Shape Before Transformer: torch.Size([13, 257, 192])
+        Features Shape After Transformer: torch.Size([13, 257, 192])
+        Features Shape After Rearrange: torch.Size([257, 13, 192])
+        Features Shape After Removing CLS Token: torch.Size([256, 13, 192])
+        Patches Shape After Linear Head: torch.Size([256, 13, 12])
+        Reconstructed Image Shape: torch.Size([13, 3, 32, 32])
+        Mask Shape: torch.Size([13, 3, 32, 32])
+
+
+        Output: torch.Size([13, 3, 32, 32]) torch.Size([13, 3, 32, 32])
+-----------------------------
+ViT Classifier:
+        Input: torch.Size([13, 3, 32, 32])
+
+
+        Classifier Input Image Shape: torch.Size([13, 3, 32, 32])
+        Patches Shape After Conv2d: torch.Size([13, 192, 16, 16])
+        Patches Shape After Rearrange: torch.Size([256, 13, 192])
+        Patches Shape After Adding Positional Embedding: torch.Size([256, 13, 192])
+        Patches Shape After Adding CLS Token: torch.Size([257, 13, 192])
+        Patches Shape Before Transformer: torch.Size([13, 257, 192])
+        Features Shape After Transformer: torch.Size([13, 257, 192])
+        Features Shape After Rearrange: torch.Size([257, 13, 192])
+        Logits Shape: torch.Size([13, 10])
+
+
+        Output: torch.Size([13, 10])
+-----------------------------
